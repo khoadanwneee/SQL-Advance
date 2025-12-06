@@ -1,0 +1,348 @@
+/* --- CÀI ĐẶT CHUNG (GLOBAL) --- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --primary-color: #9333ea; /* Màu tím thương hiệu */
+  --primary-light: #f3e8ff; /* Tím nhạt làm nền */
+  --text-dark: #1f2937;
+  --text-gray: #6b7280;
+  --white: #ffffff;
+  --radius: 16px; /* Bo góc chuẩn thiết kế */
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --bg-purple-light: #FDF4FF; /* Light purple background */
+  --text-color: #333;
+  --text-light: #666;
+  --border-color: #E5E7EB;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #f9fafb;
+  color: var(--text-dark);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* --- CÁC NÚT BẤM (BUTTONS) --- */
+.btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  border: none;
+  transition: 0.3s;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(147, 51, 234, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #7e22ce;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-light);
+}
+
+/* --- PHẦN 1: HEADER (THANH ĐIỀU HƯỚNG) --- */
+.header {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+  position: relative;
+  display: none; /* Ẩn trên mobile */
+}
+
+/* Hiện search trên màn hình lớn */
+@media (min-width: 768px) {
+  .search-container { display: block; }
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.search-icon-pos {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* --- PHẦN 2: HERO SECTION (GIỚI THIỆU) --- */
+.hero-section {
+  background-color: var(--primary-light);
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 80px 10%; /* Căn lề rộng hơn trên PC */
+  }
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* --- PHẦN 3: DANH SÁCH SẢN PHẨM (GRID) --- */
+.section-container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--white);
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  display: flex;
+  gap: 15px;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--primary-color);
+}
+
+.product-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.product-price {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+/* --- PHẦN 4: DỊCH VỤ (NGANG) --- */
+.services-bg {
+  background-color: #faf5ff; /* Nền khác biệt một chút */
+}
+
+.services-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+/* Trên màn hình lớn thì thành lưới 4 cột */
+@media (min-width: 1024px) {
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: visible;
+  }
+}
+
+.service-card {
+  min-width: 280px;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.service-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+  flex: 1; /* Đẩy nút xuống đáy */
+}
+
+/* --- PHẦN 5: ĐÁNH GIÁ (DỌC) --- */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-item {
+  background: var(--white);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid #eee;
+  display: flex;
+  gap: 20px;
+}
+
+.review-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.review-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stars {
+  color: #fbbf24;
+  margin-bottom: 10px;
+}
+
+/* --- FOOTER --- */
+.footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
