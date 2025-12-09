@@ -1,0 +1,354 @@
+/* PetDetailPage.css */
+.pd-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: 'Nunito', sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  color: #374151;
+}
+
+/* --- Header --- */
+.pd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  background-color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.pd-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pd-back-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.pd-back-btn:hover {
+  color: #9333ea;
+}
+
+.pd-page-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #9333ea;
+  margin: 0;
+}
+
+.pd-edit-btn {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pd-edit-btn:hover {
+  background-color: #7e22ce;
+}
+
+/* --- Layout Grid --- */
+.pd-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+}
+
+/* --- Left Sidebar (Profile) --- */
+.pd-profile-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.pd-avatar-container {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.pd-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pd-pet-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+}
+
+.pd-gender-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pd-badge-male {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.pd-badge-female {
+  background-color: #fce7f3;
+  color: #db2777;
+}
+
+.pd-profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pd-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.pd-icon-purple {
+  color: #9333ea;
+  font-size: 1.1rem;
+}
+
+.pd-status-mini-box {
+  background-color: #fdf2f8;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.pd-status-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pd-status-value {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* --- Right Content --- */
+.pd-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pd-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.pd-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 20px 0;
+}
+
+/* Basic Info Grid */
+.pd-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 40px;
+}
+
+.pd-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pd-info-label {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.pd-info-val {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Health Status Section */
+.pd-health-box {
+  background-color: #fdf2f8; /* Pinkish bg */
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.pd-health-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #dcfce7;
+  color: #166534;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pd-health-text h4 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.pd-health-highlight {
+  color: #166534;
+  font-weight: 800;
+}
+
+.pd-health-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.pd-health-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.pd-btn-action {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+
+.pd-btn-outline {
+  background-color: white;
+  border: 1px solid #9333ea;
+  color: #9333ea;
+}
+
+.pd-btn-outline:hover {
+  background-color: #f3e8ff;
+}
+
+.pd-btn-fill {
+  background-color: #9333ea;
+  border: 1px solid #9333ea;
+  color: white;
+}
+
+.pd-btn-fill:hover {
+  background-color: #7e22ce;
+}
+
+/* Quick Actions Grid */
+.pd-quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Only 2 buttons now */
+  gap: 20px;
+}
+
+.pd-quick-btn {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pd-quick-btn:hover {
+  border-color: #9333ea;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.pd-quick-icon {
+  font-size: 1.8rem;
+  color: #9333ea;
+}
+
+.pd-quick-label {
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pd-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .pd-avatar-container {
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+
+  .pd-info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .pd-health-actions {
+    flex-direction: column;
+  }
+}

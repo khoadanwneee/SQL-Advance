@@ -1,0 +1,103 @@
+/* MedicalHistoryPage.css */
+.history-page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  background-color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #f3f4f6;
+  color: #9333ea;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #9333ea;
+  margin: 0;
+}
+
+.sub-title {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 2px 0 0 0;
+}
+
+.btn-new-appointment {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-new-appointment:hover {
+  background-color: #7e22ce;
+}
+
+.history-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Responsive Page Layout */
+@media (max-width: 640px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .header-left-group {
+    justify-content: flex-start;
+  }
+  
+  .btn-new-appointment {
+    width: 100%;
+  }
+}

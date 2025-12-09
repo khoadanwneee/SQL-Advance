@@ -1,0 +1,204 @@
+/* VaccinationHistoryCard.css */
+.vaccine-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #f3f4f6;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.vaccine-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.1);
+}
+
+/* Header Styles */
+.vaccine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.icon-green {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.icon-yellow {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.vaccine-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.vaccine-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.clinic-name {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+}
+
+.badge-row {
+  display: flex;
+  gap: 8px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.badge-green {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-yellow {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.id-badge {
+  background-color: #f3e8ff;
+  color: #9333ea;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.btn-detail {
+  padding: 8px 20px;
+  border: 1px solid #9333ea;
+  background-color: white;
+  color: #9333ea;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.btn-detail:hover {
+  background-color: #f3e8ff;
+}
+
+/* Body Styles */
+.vaccine-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.date-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Progress Bar Styles */
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.fill-green {
+  background-color: #10b981; /* Green */
+}
+
+.fill-yellow {
+  background-color: #eab308; /* Yellow/Orange */
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .vaccine-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .btn-detail {
+    width: 100%;
+  }
+
+  .date-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

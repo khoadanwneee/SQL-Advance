@@ -1,0 +1,337 @@
+/* cni-styles.css */
+.cni-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 20px;
+  color: #374151;
+  box-sizing: border-box;
+}
+
+/* Header */
+.cni-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  background: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cni-back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 16px;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+}
+
+.cni-page-title h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #9333ea; /* Purple */
+  margin: 0 0 4px 0;
+}
+
+.cni-page-title p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Layout Grid */
+.cni-grid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.cni-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cni-sidebar {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* Cards */
+.cni-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cni-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cni-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f3e8ff; /* Light purple */
+  color: #9333ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cni-card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+/* Inputs & Forms */
+.cni-form-group {
+  margin-bottom: 16px;
+}
+
+.cni-label {
+  display: block;
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.cni-required {
+  color: #ef4444;
+}
+
+.cni-input, .cni-select, .cni-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.cni-input:focus, .cni-select:focus, .cni-textarea:focus {
+  border-color: #9333ea;
+}
+
+.cni-input-icon-wrapper {
+  position: relative;
+}
+
+.cni-input-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9333ea;
+}
+
+/* Product Section */
+.cni-product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cni-add-btn {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cni-add-btn:hover {
+  background-color: #7e22ce;
+}
+
+.cni-empty-state {
+  text-align: center;
+  padding: 30px 0;
+  color: #9ca3af;
+}
+
+.cni-empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+  margin: 0 auto 12px auto;
+  color: #e5e7eb;
+}
+
+/* Product Item Row */
+.cni-product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.cni-prod-info {
+  flex: 1;
+}
+
+.cni-prod-name {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.cni-prod-price {
+  color: #9333ea;
+  font-weight: 500;
+}
+
+.cni-qty-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px;
+}
+
+.cni-qty-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.cni-qty-input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  height: 28px;
+}
+
+.cni-delete-btn {
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Sidebar Summary */
+.cni-summary-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.cni-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.cni-summary-total {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cni-total-price {
+  color: #9333ea;
+}
+
+.cni-info-list {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cni-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.cni-action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cni-btn-confirm {
+  width: 100%;
+  background-color: #d1d5db; /* Disabled look by default */
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+.cni-btn-confirm.active {
+  background-color: #9333ea;
+  cursor: pointer;
+}
+
+.cni-btn-cancel {
+  width: 100%;
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Two column grid inside cards */
+.cni-row-2 {
+  display: flex;
+  gap: 16px;
+}
+.cni-col {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .cni-grid {
+    flex-direction: column;
+  }
+  .cni-sidebar {
+    width: 100%;
+  }
+  .cni-row-2 {
+    flex-direction: column;
+  }
+}

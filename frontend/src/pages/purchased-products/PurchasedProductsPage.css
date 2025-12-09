@@ -1,0 +1,72 @@
+/* PurchasedProductsPage.css */
+.purchased-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Header Styles (Consistent with other pages) */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  background-color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #4b5563;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #f3f4f6;
+  color: #9333ea;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #9333ea;
+  margin: 0;
+}
+
+.sub-title {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 2px 0 0 0;
+}
+
+/* List Container */
+.purchased-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

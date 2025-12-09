@@ -1,0 +1,242 @@
+/* MedicalHistoryCard.css */
+.medical-history-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid #f3f4f6;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.medical-history-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.1);
+  border-color: #e9d5ff;
+}
+
+/* Header Styles */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f3e8ff;
+  color: #9333ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.visit-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visit-number {
+  background-color: #f3e8ff;
+  color: #9333ea;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.doctor-name {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.btn-detail {
+  padding: 8px 20px;
+  border: 1px solid #9333ea;
+  background-color: white;
+  color: #9333ea;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-detail:hover {
+  background-color: #f3e8ff;
+}
+
+/* Body Styles */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-icon {
+  color: #9ca3af;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.highlight-text {
+  color: #1f2937;
+}
+
+.info-full-width {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-box {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.gray-bg {
+  background-color: #f9fafb;
+}
+
+.purple-bg {
+  background-color: #f3e8ff;
+  color: #6b21a8; /* Darker purple for text readability */
+  border-left: 4px solid #9333ea;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .btn-detail {
+    width: 100%;
+  }
+
+  .info-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ... Giữ nguyên các style cũ của .medical-history-card ... */
+
+/* Cập nhật Header để chứa group button */
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-review {
+  padding: 8px 16px;
+  background-color: #fffbeb; /* Nền vàng nhạt */
+  border: 1px solid #f59e0b;
+  color: #b45309;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-review:hover {
+  background-color: #fcd34d;
+}
+
+.star-icon {
+  color: #f59e0b;
+  font-size: 0.9rem;
+}
+
+/* Grid 4 ô cho phần thông tin trên cùng (Ngày + Dịch vụ + Giá) */
+.info-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+/* Style cho giá tiền */
+.price-text {
+  font-weight: 800;
+  color: #9333ea; /* Màu tím thương hiệu */
+  font-size: 1.1rem;
+}
+
+/* Style cho Lời dặn bác sĩ */
+.advice-bg {
+  background-color: #fff7ed; /* Nền cam rất nhạt */
+  border: 1px solid #ffedd5;
+  color: #c2410c; /* Chữ màu cam đậm */
+  font-style: italic;
+}
+
+/* Responsive: Trên điện thoại chuyển grid 4 thành 1 cột */
+@media (max-width: 640px) {
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .btn-review, .btn-detail {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .info-grid-4 {
+    grid-template-columns: 1fr; /* Xuống dòng hết */
+    gap: 15px;
+  }
+}
