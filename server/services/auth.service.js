@@ -60,3 +60,15 @@ export const findKHACH_HANG_ByUsername = async (username) => {
         throw error;
     }
 }
+
+export const findNHAN_VIEN_ByUsername = async (username) => {
+    try {
+        const employee = await db('NHAN_VIEN')
+            .where('TenDangNhap', username)
+            .first();
+        return employee;
+    } catch (error) {
+        console.error('Error finding employee:', error);
+        throw error;
+    }
+}
