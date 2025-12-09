@@ -1,7 +1,18 @@
 import React from 'react';
-import'./Input.css'
+import './Input.css';
 
-const InputField = ({ label, type, placeholder, icon, required, isSelect, options }) => {
+const InputField = ({
+  label,
+  type = 'text',
+  placeholder,
+  icon,
+  required,
+  isSelect,
+  options = [],
+  value,
+  onChange,
+  ...rest
+}) => {
   return (
     <div className="input-group">
       <label className="input-label">
@@ -9,11 +20,20 @@ const InputField = ({ label, type, placeholder, icon, required, isSelect, option
       </label>
       <div className="input-wrapper">
         {icon && !isSelect && <span className="input-icon">{icon}</span>}
+
         {isSelect ? (
-          <select className="input-field select-field" defaultValue="">
-            <option value="" disabled>{placeholder}</option>
+          <select
+            className="input-field select-field"
+            value={value}
+            onChange={onChange}
+            required={required}
+            {...rest}
+          >
+            <option value="">{placeholder}</option>
             {options.map((option, index) => (
-              <option key={index} value={option.value}>{option.label}</option>
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
             ))}
           </select>
         ) : (
@@ -21,6 +41,10 @@ const InputField = ({ label, type, placeholder, icon, required, isSelect, option
             type={type}
             className="input-field"
             placeholder={placeholder}
+            required={required}
+            value={value}
+            onChange={onChange}
+            {...rest}
           />
         )}
       </div>

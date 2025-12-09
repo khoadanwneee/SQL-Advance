@@ -1,11 +1,87 @@
 import React from 'react';
 import { FiUser, FiLock, FiMail, FiCalendar, FiArrowLeft } from 'react-icons/fi';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import InputField from '../../components/input/InputField';
 import './Auth.css';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+
+  const [formData, setFormData] = React.useState({
+    HoTen: "",
+    SDT: "",
+    Email: "",
+    GioiTinh: "",
+    NgaySinh: "",
+    NgayDangKy: new Date().toISOString().slice(0, 10),
+    TenDangNhap: "",
+    MatKhau: "",
+    confirmMatKhau: "",
+  });
+
+  const handleChange = (name, value) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.agree) {
+      alert("Vui lòng chấp nhận điều khoản.");
+      return;
+    }
+
+    if (!formData.HoTen || !formData.TenDangNhap || !formData.Email || !formData.MatKhau || !formData.confirmMatKhau || !formData.NgaySinh || !formData.GioiTinh || !formData.SDT) {
+      alert("Vui lòng điền đầy đủ thông tin.");
+      return;
+    }
+
+    if (!/^\d{10,11}$/.test(formData.SDT)) {
+      alert("Số điện thoại không hợp lệ.");
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(formData.Email)) {
+      alert("Email không hợp lệ.");
+      return;
+    }
+
+    if (formData.NgaySinh >= new Date().toISOString().slice(0, 10)) {
+      alert("Ngày sinh không hợp lệ.");
+      return;
+    }
+
+    if (formData.MatKhau.length < 6) {
+      alert("Mật khẩu phải >= 6 ký tự.");
+      return;
+    }
+
+    if (formData.MatKhau !== formData.confirmMatKhau) {
+      alert("Mật khẩu không khớp.");
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:3000/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Đăng ký thành công!");
+        navigate('/login');
+      } else {
+        alert("Đăng ký thất bại: " + data.message);
+      }
+    } catch (error) {
+      alert("Đăng ký thất bại: " + error.message);
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -13,79 +89,95 @@ const RegisterPage = () => {
       <p className="sub-title">Tạo tài khoản mới</p>
       <div className="auth-card">
         <h2 className="form-title">Đăng ký</h2>
-        <form>
+
+        <form onSubmit={handleSubmit}>
           <InputField
             label="Họ tên"
-            type="text"
-            placeholder="Nhập họ và tên"
-            icon={<FiUser />}
+            value={formData.HoTen}
             required
+            icon={<FiUser />}
+            onChange={(e) => handleChange("HoTen", e.target.value)}
           />
+
           <InputField
             label="Tên đăng nhập"
-            type="text"
-            placeholder="Nhập tên đăng nhập"
-            icon={<FiUser />}
+            value={formData.TenDangNhap}
             required
+            icon={<FiUser />}
+            onChange={(e) => handleChange("TenDangNhap", e.target.value)}
           />
+
           <InputField
             label="Email"
             type="email"
-            placeholder="Nhập email"
-            icon={<FiMail />}
+            value={formData.Email}
             required
+            icon={<FiMail />}
+            onChange={(e) => handleChange("Email", e.target.value)}
           />
+
+          <InputField
+            label="Số điện thoại"
+            value={formData.SDT}
+            required
+            onChange={(e) => handleChange("SDT", e.target.value)}
+          />
+
           <div className="form-row">
             <InputField
               label="Mật khẩu"
               type="password"
-              placeholder="Nhập mật khẩu"
-              icon={<FiLock />}
+              value={formData.MatKhau}
               required
+              icon={<FiLock />}
+              onChange={(e) => handleChange("MatKhau", e.target.value)}
             />
+
             <InputField
               label="Xác nhận mật khẩu"
               type="password"
-              placeholder="Nhập lại mật khẩu"
-              icon={<FiLock />}
+              value={formData.confirmMatKhau}
               required
+              icon={<FiLock />}
+              onChange={(e) => handleChange("confirmMatKhau", e.target.value)}
             />
           </div>
+
           <div className="form-row">
-             <InputField
+            <InputField
               label="Ngày sinh"
               type="date"
-              placeholder="mm/dd/yyyy"
-              icon={<FiCalendar />}
+              value={formData.NgaySinh}
               required
+              icon={<FiCalendar />}
+              onChange={(e) => handleChange("NgaySinh", e.target.value)}
             />
+
             <InputField
               label="Giới tính"
               isSelect
-              placeholder="Chọn giới tính"
-              options={[
-                { value: 'nam', label: 'Nam' },
-                { value: 'nu', label: 'Nữ' },
-                { value: 'khac', label: 'Khác' },
-              ]}
+              value={formData.GioiTinh}
               required
+              options={[
+                { value: "Nam", label: "Nam" },
+                { value: "Nu", label: "Nữ" },
+                { value: "Khac", label: "Khác" },
+              ]}
+              onChange={(e) => handleChange("GioiTinh", e.target.value)}
             />
           </div>
+
           <div className="checkbox-group">
-            <input type="checkbox" id="terms" className="checkbox" />
-            <label htmlFor="terms" className="checkbox-label">
-              Tôi đồng ý với <span className="link-text">Điều khoản dịch vụ</span> và <span className="link-text">Chính sách bảo mật</span>
-            </label>
+            <input
+              type="checkbox"
+              checked={formData.agree}
+              onChange={(e) => handleChange("agree", e.target.checked)}
+            />
+            <label>Tôi đồng ý điều khoản dịch vụ</label>
           </div>
+
           <button type="submit" className="submit-button">Đăng ký</button>
         </form>
-        <div className="separator">hoặc</div>
-        <div className="auth-switch">
-          Đã có tài khoản? <span className="link-text" onClick={() => {navigate('/login');}}>Đăng nhập ngay</span>
-        </div>
-      </div>
-      <div className="back-to-home" onClick={() => {navigate('/');}}>
-        <FiArrowLeft className="back-icon" size={20} /> Quay lại trang chủ
       </div>
     </div>
   );

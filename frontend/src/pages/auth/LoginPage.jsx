@@ -1,30 +1,69 @@
 import React from 'react';
 import { FiUser, FiLock, FiArrowLeft } from 'react-icons/fi';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import InputField from '../../components/input/InputField';
 import './Auth.css';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  
+
+  const [formData, setFormData] = React.useState({
+    TenDangNhap: "",
+    MatKhau: "",
+  });
+
+  const handleChange =  (name, value) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Đăng nhập thành công!");
+        localStorage.setItem('token', data.token);
+        navigate('/');
+      } else {
+        alert("Đăng nhập thất bại: " + data.message);
+      }
+    } catch (error) {
+      alert("Đăng nhập thất bại: " + error.message);
+    }
+  }
+
   return (
     <div className="auth-container">
       <h1 className="main-title">PetCareX</h1>
       <p className="sub-title">Đăng nhập để tiếp tục</p>
       <div className="auth-card">
         <h2 className="form-title">Đăng nhập</h2>
-        <form>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <InputField
             label="Tên đăng nhập"
             type="text"
             placeholder="Nhập tên đăng nhập"
             icon={<FiUser />}
+            onChange={(e) => handleChange("TenDangNhap", e.target.value)}
+            value={formData.TenDangNhap}
           />
           <InputField
             label="Mật khẩu"
             type="password"
             placeholder="Nhập mật khẩu"
             icon={<FiLock />}
+            onChange={(e) => handleChange("MatKhau", e.target.value)}
+            value={formData.MatKhau}
           />
           <div className="forgot-password">
             <span className="link-text">Quên mật khẩu?</span>
