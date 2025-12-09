@@ -33,7 +33,6 @@ const LoginPage = () => {
       if (data.success) {
         alert("Đăng nhập thành công!");
         localStorage.setItem('token', data.token);
-        localStorage.setItem('role', data.role);
         navigate('/');
       } else {
         alert("Đăng nhập thất bại: " + data.message);
