@@ -8,14 +8,12 @@ import Footer from "../../components/footer/Footer";
 const HomePage = () => {
   return (
     <div className="app-container">
-      <HeaderBar />
       <main className="flex-grow">
         <HeroSection />
         <FeaturedProducts />
         <ServicesSection />
         <CustomerReviews />
       </main>
-      <Footer />
     </div>
   );
 };

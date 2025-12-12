@@ -1,6 +1,8 @@
 import React from 'react';
 import PetCard from '../../components/pet/PetCard';
 import { FaArrowLeft, FaPlus } from 'react-icons/fa';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 import './MyPets.css'
 
 const MyPets = () => {
@@ -35,13 +37,28 @@ const MyPets = () => {
     }
   ];
 
+  const navigate = useNavigate();
+
   const handleBack = () => {
     console.log("Quay lại trang trước");
-    // Thêm logic điều hướng tại đây (ví dụ: navigate(-1))
+    navigate(-1);
   };
 
+  const [pets, setPets] = React.useState([]);
+  React.useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    const preMyPets = async () => {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const id = payload.MaKhachHang;
+      const petLists = await axios.get(`http://localhost:3000/pets?clientid=${id}`);
+      setPets(petLists.data);
+    };
+    preMyPets();
+  }, []);
+
   const handleAddPet = () => {
-    console.log("Thêm thú cưng mới");
+    // navigate('/add-pets?');
   };
 
   return (
@@ -62,8 +79,8 @@ const MyPets = () => {
 
       {/* Grid danh sách */}
       <div className="pets-grid">
-        {petsData.map((pet) => (
-          <PetCard key={pet.id} pet={pet} />
+        {pets.map((pet) => (
+          <PetCard key={pet.MaThuCung} pet={pet} />
         ))}
       </div>
     </div>

@@ -1,66 +1,100 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PurchasedProductCard from '../../components/product-card/PurchasedProductCard';
 import './PurchasedProductsPage.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const PurchasedProductsPage = ({ onBack }) => {
-  // Mock Data
-  const purchasedItems = [
-    {
-      id: 1,
-      orderId: 'DH001',
-      name: 'Royal Canin Dry Food for Dogs',
-      category: 'Food',
-      quantity: 2,
-      totalPrice: '850.000đ',
-      status: 'Delivered',
-      orderDate: '25/11/2024',
-      image: 'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'
-    },
-    {
-      id: 2,
-      orderId: 'DH002',
-      name: 'Premium Leather Collar',
-      category: 'Accessories',
-      quantity: 1,
-      totalPrice: '150.000đ',
-      status: 'Delivered',
-      orderDate: '20/11/2024',
-      image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'
-    },
-    {
-      id: 3,
-      orderId: 'DH003',
-      name: 'SOS Smooth Coat Shampoo',
-      category: 'Hygiene',
-      quantity: 3,
-      totalPrice: '450.000đ',
-      status: 'Delivered',
-      orderDate: '10/11/2024',
-      image: 'https://images.unsplash.com/photo-1585837575652-267c041d77d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'
-    }
-  ];
+const PurchasedProductsPage = () => {
+  const navigate = useNavigate();
+  const [purchasedItems, setPurchasedItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    const fetchPurchasedProducts = async () => {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        navigate('/login');
+        return;
+      }
+
+      try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(
+          window.atob(base64)
+            .split('')
+            .map(function(c) {
+              return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            })
+            .join('')
+        );
+
+        const payload = JSON.parse(jsonPayload);
+        const userId = payload.MaKhachHang; 
+
+        const response = await axios.get(`http://localhost:3000/orders/history?clientid=${userId}`);
+
+        const formattedData = response.data.map((item) => ({
+          id: item.MaHoaDon, 
+          orderId: item.MaHoaDon,
+          name: item.TenSanPham, 
+          category: item.LoaiSanPham || "Khác",
+          quantity: item.SoLuong,
+          totalPrice: item.TongTien ? `${item.TongTien.toLocaleString()}đ` : '0đ',
+          status: item.TrangThai || 'Đang xử lý',
+          orderDate: item.NgayLap ? new Date(item.NgayDat).toLocaleDateString('vi-VN') : 'N/A',
+          image: item.URLAnhMinhHoa || 'https://via.placeholder.com/150'
+        }));
+
+        setPurchasedItems(formattedData);
+      } catch (error) {
+        console.error("Lỗi khi tải lịch sử mua hàng:", error);
+        // Có thể set state lỗi để hiển thị thông báo cho user
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPurchasedProducts();
+  }, [navigate]);
 
   return (
     <div className="purchased-page-container">
       {/* Header */}
       <div className="page-header">
         <div className="header-left-group">
-          <button className="back-button" onClick={onBack}>
+          {/* Sửa onClick={onBack} thành handleBack */}
+          <button className="back-button" onClick={handleBack}>
             <FaArrowLeft />
           </button>
           <div className="header-titles">
             <h1 className="main-title">Sản phẩm đã mua</h1>
-            <p className="sub-title">{purchasedItems.length} orders</p>
+            <p className="sub-title">
+              {loading ? "Đang tải..." : `${purchasedItems.length} đơn hàng`}
+            </p>
           </div>
         </div>
       </div>
 
       {/* List Container */}
       <div className="purchased-list">
-        {purchasedItems.map((item) => (
-          <PurchasedProductCard key={item.id} product={item} />
-        ))}
+        {loading ? (
+          <p style={{ textAlign: 'center', marginTop: '20px' }}>Đang tải dữ liệu...</p>
+        ) : purchasedItems.length > 0 ? (
+          purchasedItems.map((item) => (
+            <PurchasedProductCard key={item.id} product={item} />
+          ))
+        ) : (
+          <p style={{ textAlign: 'center', marginTop: '20px', color: '#666' }}>
+            Bạn chưa mua sản phẩm nào.
+          </p>
+        )}
       </div>
     </div>
   );

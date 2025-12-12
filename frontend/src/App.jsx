@@ -10,13 +10,14 @@ import UserProfile from './pages/user-profile/UserProfile'
 import PurchasedProductsPage from './pages/purchased-products/PurchasedProductsPage'
 import PetDetailPage from './pages/pet-detail/PetDetailPage'
 import VaccinationDetail from './pages/vaccination-detail/vdp'
-import CreateInvoicePage from './pages/create-invoice/cip'
 
 import CustomerLayout from './layouts/CustomerLayout'
 import AdminLayout from './layouts/AdminLayout'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminLogin from './pages/admin/AdminLogin'
 import Dashboard from './pages/admin/Dashboard'
+
+import CreateInvoicePage from './pages/cashier/create-invoice/cip'
 
 import './App.css'
 
