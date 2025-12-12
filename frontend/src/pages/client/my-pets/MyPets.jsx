@@ -1,5 +1,5 @@
 import React from 'react';
-import PetCard from '../../components/pet/PetCard';
+import PetCard from '../../../components/pet/PetCard';
 import { FaArrowLeft, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import { useNavigate } from 'react-router';

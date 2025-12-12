@@ -1,5 +1,5 @@
 import React from 'react';
-import MedicalHistoryCard from '../../components/med-history-card/MedicalHistoryCard';
+import MedicalHistoryCard from '../../../components/med-history-card/MedicalHistoryCard';
 import './MedicalHistoryPage.css';
 import { FaArrowLeft, FaCalendarPlus } from 'react-icons/fa';
 

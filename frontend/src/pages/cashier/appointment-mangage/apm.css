@@ -1,0 +1,257 @@
+/* apm-styles.css */
+.apm-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.apm-header-section {
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  color: white;
+  padding: 24px 32px 80px 32px; /* Bottom padding for overlapping cards */
+}
+
+.apm-nav-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.apm-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.apm-page-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.apm-page-subtitle {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+/* Main Content Wrapper */
+.apm-content-wrapper {
+  padding: 0 32px 40px 32px;
+  margin-top: -50px; /* Pull content up */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Summary Cards (Top) */
+.apm-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.apm-stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apm-stat-label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.apm-stat-number {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.apm-text-yellow { color: #d97706; }
+.apm-text-green { color: #16a34a; }
+.apm-text-blue { color: #2563eb; }
+
+.apm-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.apm-bg-yellow { background-color: #fef3c7; color: #d97706; }
+.apm-bg-green { background-color: #dcfce7; color: #16a34a; }
+.apm-bg-blue { background-color: #dbeafe; color: #2563eb; }
+
+/* Filter Tabs */
+.apm-tabs-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px; /* for scrollbar spacing */
+}
+
+.apm-tab-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.apm-tab-btn.active {
+  background-color: #9333ea; /* Purple */
+  color: white;
+  border-color: #9333ea;
+}
+
+/* Appointment Card */
+.apm-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.apm-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.apm-id-badge {
+  font-weight: 600;
+  color: #9333ea;
+  margin-right: 12px;
+}
+
+.apm-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.apm-status-pending { background-color: #fef3c7; color: #b45309; }
+.apm-status-confirmed { background-color: #dcfce7; color: #15803d; }
+
+.apm-created-time {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: right;
+}
+
+.apm-service-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Grid Layout for Card Details */
+.apm-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.apm-detail-item {
+  display: flex;
+  gap: 12px;
+}
+
+.apm-detail-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #f3e8ff;
+  color: #9333ea;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.apm-detail-text label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.apm-detail-text div {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.apm-detail-sub {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: normal !important;
+}
+
+/* Action Button */
+.apm-action-row {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 16px;
+}
+
+.apm-btn-confirm {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.apm-btn-confirm:hover {
+  background-color: #7e22ce;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apm-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .apm-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

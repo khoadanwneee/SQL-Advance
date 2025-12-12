@@ -1,5 +1,5 @@
 import React from 'react';
-import VaccinationHistoryCard from '../../components/vaccine-card/VaccinationHistoryCard';
+import VaccinationHistoryCard from '../../../components/vaccine-card/VaccinationHistoryCard';
 import './VaccinationHistoryPage.css';
 import { FaArrowLeft } from 'react-icons/fa';
 

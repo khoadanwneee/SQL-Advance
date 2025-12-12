@@ -215,11 +215,11 @@ const PetDetailPage = () => {
           <div className="pd-card">
             <h3 className="pd-card-title">Thao tác nhanh</h3>
             <div className="pd-quick-grid">
-              <div className="pd-quick-btn" style={{cursor: 'pointer'}} onClick={() => navigate('/booking')}>
+              <div className="pd-quick-btn" style={{cursor: 'pointer'}} onClick={() => navigate('/book-appointment')}>
                 <FaCalendarAlt className="pd-quick-icon" />
                 <span className="pd-quick-label">Đặt lịch khám</span>
               </div>
-              <div className="pd-quick-btn" style={{cursor: 'pointer'}} onClick={() => navigate('/booking-vaccine')}>
+              <div className="pd-quick-btn" style={{cursor: 'pointer'}} onClick={() => navigate('/book-vaccine')}>
                 <FaSyringe className="pd-quick-icon" />
                 <span className="pd-quick-label">Đặt lịch tiêm</span>
               </div>
